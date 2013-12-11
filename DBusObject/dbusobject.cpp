@@ -82,6 +82,10 @@ void DBusObject::classBegin()
 {
 }
 
+void DBusObject::updateProperties() {
+    this->componentComplete();
+}
+
 void DBusObject::componentComplete()
 {
     if (d->name.isEmpty() || d->objectPath.isEmpty() || d->interfaceName.isEmpty()) {

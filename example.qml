@@ -1,6 +1,7 @@
 
 import DBusObject 0.1
 import QtQuick 2.0
+import Ubuntu.Components 0.1
 
 Item {
   width: 100
@@ -13,8 +14,14 @@ Item {
     objectPath: "/org/freedesktop/UPower"
     interfaceName: "org.freedesktop.UPower"
   }
-
-  Text {
-    text: upower.OnBattery
+  Column {
+      Text {
+          text: upower.OnBattery
+          // text: upower.EnumerateDevices()
+      }
+      Button {
+          id: updateButton
+          Component.onCompleted: updateButton.clicked.connect(upower.updateProperties)
+      }
   }
 }
